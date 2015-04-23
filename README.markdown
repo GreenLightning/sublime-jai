@@ -1,6 +1,6 @@
 #Sublime Text package for Jai
 
-This package adds support for the programming language Jai to Sublime Text 3.
+This package adds support for the Jai programming language to Sublime Text 3.
 
 ## Featuers
 
