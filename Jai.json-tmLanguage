@@ -1,0 +1,77 @@
+// [PackageDev] target_format: plist
+{
+	"name": "Jai",
+	"scopeName": "source.jai",
+	"fileTypes": ["jai"],
+	"patterns": [
+		{
+			"name": "constant.language.true.source.jai",
+			"match": "\\btrue\\b"
+		},
+		{
+			"name": "constant.language.false.source.jai",
+			"match": "\\bfalse\\b"
+		},
+		{
+			"name": "constant.numeric.source.jai",
+			"match": "\\d+(?:\\.\\d+)?"
+		},
+		{
+			"name": "string.quoted.double.source.jai",
+			"match": "\".*\""
+		},
+		{
+			"name": "string.quoted.single.source.jai",
+			"match": "'."
+		},
+		{
+			"name": "keyword.other.directive.source.jai",
+			"match": "#\\w*"
+		},
+		{
+			"name": "keyword.other.tag.source.jai",
+			"match": "@\\S+"
+		},
+		{
+			"name": "keyword.control.source.jai",
+			"match": "\\b(?:if|else|for|while|return)\\b"
+		},
+		{
+			"name": "keyword.operator.source.jai",
+			"match": "\\b(?:new|delete|cast|defer)\\b"
+		},
+		{
+			"name": "keyword.other.source.jai",
+			"match": "\\b(?:using)\\b"
+		},
+		{
+			"name": "storage.type.source.jai",
+			"match": "\\b(?:struct|enum|void|string|int|float|float32|float64|u8|u16|u32|u64|s8|s16|s32|s64)\\b"
+		},
+		{
+			"include": "#comment"
+		}
+	],
+	"repository": {
+		"comment": {
+			"patterns": [
+				{ "include": "#line-comment" },
+				{ "include": "#block-comment" }
+			]
+		},
+		"block-comment": {
+			"name": "comment.block.source.jai",
+			"begin": "/\\*",
+			"end": "\\*/",
+			"patterns": [
+				{ "include": "#block-comment" }
+			]
+		},
+		"line-comment": {
+			"name": "comment.line.source.jai",
+			"begin": "//",
+			"end": "$"
+		}
+	},
+	"uuid": "728cfc9a-25ea-429c-a559-daf7c5d46351"
+}
