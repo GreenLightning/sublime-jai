@@ -24,9 +24,15 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>(?&lt;!\w)0x[[:xdigit:]]+</string>
+			<key>name</key>
+			<string>constant.numeric.hexadecimal.source.jai</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(?&lt;!\w)\d+(?:\.\d+)?</string>
 			<key>name</key>
-			<string>constant.numeric.source.jai</string>
+			<string>constant.numeric.decimal.source.jai</string>
 		</dict>
 		<dict>
 			<key>match</key>

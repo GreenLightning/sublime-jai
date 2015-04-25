@@ -13,7 +13,11 @@
 			"match": "\\bfalse\\b"
 		},
 		{
-			"name": "constant.numeric.source.jai",
+			"name": "constant.numeric.hexadecimal.source.jai",
+			"match": "(?<!\\w)0x[[:xdigit:]]+"
+		},
+		{
+			"name": "constant.numeric.decimal.source.jai",
 			"match": "(?<!\\w)\\d+(?:\\.\\d+)?"
 		},
 		{
