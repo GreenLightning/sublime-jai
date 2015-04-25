@@ -14,7 +14,7 @@
 		},
 		{
 			"name": "constant.numeric.source.jai",
-			"match": "\\d+(?:\\.\\d+)?"
+			"match": "(?<!\\w)\\d+(?:\\.\\d+)?"
 		},
 		{
 			"name": "string.quoted.double.source.jai",

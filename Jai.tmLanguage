@@ -24,7 +24,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\d+(?:\.\d+)?</string>
+			<string>(?&lt;!\w)\d+(?:\.\d+)?</string>
 			<key>name</key>
 			<string>constant.numeric.source.jai</string>
 		</dict>
