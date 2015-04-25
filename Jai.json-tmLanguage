@@ -42,7 +42,7 @@
 		},
 		{
 			"name": "keyword.operator.source.jai",
-			"match": "\\b(?:new|delete|cast|defer)\\b"
+			"match": "\\b(?:new|delete|cast|acast|defer)\\b"
 		},
 		{
 			"name": "keyword.other.source.jai",
