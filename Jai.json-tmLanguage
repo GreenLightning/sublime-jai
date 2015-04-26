@@ -38,19 +38,19 @@
 		},
 		{
 			"name": "keyword.control.source.jai",
-			"match": "\\b(?:if|else|for|while|return)\\b"
+			"match": "\\b(?:if|then|else|for|while|continue|return)\\b"
 		},
 		{
 			"name": "keyword.operator.source.jai",
-			"match": "\\b(?:new|delete|cast|xx|defer)\\b"
+			"match": "\\b(?:new|delete|cast|xx|size_of)\\b"
 		},
 		{
 			"name": "keyword.other.source.jai",
-			"match": "\\b(?:using)\\b"
+			"match": "\\b(?:defer|using|it|SOA|AOS|---)\\b"
 		},
 		{
 			"name": "storage.type.source.jai",
-			"match": "\\b(?:struct|enum|void|string|int|float|float32|float64|u8|u16|u32|u64|s8|s16|s32|s64)\\b"
+			"match": "\\b(?:struct|enum|void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\\b"
 		},
 		{
 			"include": "#comment"

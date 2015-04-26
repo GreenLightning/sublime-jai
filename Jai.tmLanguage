@@ -60,25 +60,25 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?:if|else|for|while|return)\b</string>
+			<string>\b(?:if|then|else|for|while|continue|return)\b</string>
 			<key>name</key>
 			<string>keyword.control.source.jai</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?:new|delete|cast|xx|defer)\b</string>
+			<string>\b(?:new|delete|cast|xx|size_of)\b</string>
 			<key>name</key>
 			<string>keyword.operator.source.jai</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?:using)\b</string>
+			<string>\b(?:defer|using|it|SOA|AOS|---)\b</string>
 			<key>name</key>
 			<string>keyword.other.source.jai</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?:struct|enum|void|string|int|float|float32|float64|u8|u16|u32|u64|s8|s16|s32|s64)\b</string>
+			<string>\b(?:struct|enum|void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\b</string>
 			<key>name</key>
 			<string>storage.type.source.jai</string>
 		</dict>
