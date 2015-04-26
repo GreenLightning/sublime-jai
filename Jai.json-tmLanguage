@@ -25,10 +25,6 @@
 			"match": "\".*\""
 		},
 		{
-			"name": "string.quoted.single.source.jai",
-			"match": "'."
-		},
-		{
 			"name": "keyword.other.directive.source.jai",
 			"match": "#\\w*"
 		},

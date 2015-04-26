@@ -42,12 +42,6 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>'.</string>
-			<key>name</key>
-			<string>string.quoted.single.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
 			<string>#\w*</string>
 			<key>name</key>
 			<string>keyword.other.directive.source.jai</string>
