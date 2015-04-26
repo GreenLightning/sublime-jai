@@ -5,6 +5,7 @@ This package adds support for the Jai programming language to Sublime Text 3.
 ## Featuers
 
 - Syntax highlighting
+- Comment definitions
 
 ##Credits
 
