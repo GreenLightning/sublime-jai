@@ -22,7 +22,7 @@
 		},
 		{
 			"name": "string.quoted.double.source.jai",
-			"match": "\".*\""
+			"match": "\".*?\""
 		},
 		{
 			"name": "keyword.other.directive.source.jai",
