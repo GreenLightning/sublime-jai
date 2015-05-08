@@ -24,7 +24,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\w)0x[[:xdigit:]]+</string>
+			<string>(?&lt;!\w)0[xX][[:xdigit:]]+</string>
 			<key>name</key>
 			<string>constant.numeric.hexadecimal.source.jai</string>
 		</dict>
@@ -60,21 +60,43 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?:new|delete|cast|xx|size_of)\b</string>
+			<string>\b(?:delete|xx|size_of)\b</string>
 			<key>name</key>
 			<string>keyword.operator.source.jai</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?:defer|using|it|SOA|AOS|---)\b</string>
+			<string>\b(?:defer|using|it|SOA|AOS)\b</string>
 			<key>name</key>
 			<string>keyword.other.source.jai</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?:struct|enum|void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\b</string>
+			<string>---</string>
+			<key>name</key>
+			<string>keyword.other.source.jai</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(?:void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\b</string>
 			<key>name</key>
 			<string>storage.type.source.jai</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#struct</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#enum</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#new</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#cast</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -99,6 +121,24 @@
 				</dict>
 			</array>
 		</dict>
+		<key>cast</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.source.jai</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.source.jai</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(cast)\s*\((.+?)\)</string>
+		</dict>
 		<key>comment</key>
 		<dict>
 			<key>patterns</key>
@@ -113,6 +153,24 @@
 				</dict>
 			</array>
 		</dict>
+		<key>enum</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.enum.source.jai</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.enum.source.jai</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\w+)\s*::\s*(enum)\b</string>
+		</dict>
 		<key>line-comment</key>
 		<dict>
 			<key>begin</key>
@@ -121,6 +179,42 @@
 			<string>$</string>
 			<key>name</key>
 			<string>comment.line.source.jai</string>
+		</dict>
+		<key>new</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.new.source.jai</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.source.jai</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(new)\s+(\w+)</string>
+		</dict>
+		<key>struct</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.struct.source.jai</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.struct.source.jai</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\w+)\s*::\s*(struct)\b</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>

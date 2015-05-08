@@ -14,7 +14,7 @@
 		},
 		{
 			"name": "constant.numeric.hexadecimal.source.jai",
-			"match": "(?<!\\w)0x[[:xdigit:]]+"
+			"match": "(?<!\\w)0[xX][[:xdigit:]]+"
 		},
 		{
 			"name": "constant.numeric.decimal.source.jai",
@@ -38,21 +38,55 @@
 		},
 		{
 			"name": "keyword.operator.source.jai",
-			"match": "\\b(?:new|delete|cast|xx|size_of)\\b"
+			"match": "\\b(?:delete|xx|size_of)\\b"
 		},
 		{
 			"name": "keyword.other.source.jai",
-			"match": "\\b(?:defer|using|it|SOA|AOS|---)\\b"
+			"match": "\\b(?:defer|using|it|SOA|AOS)\\b"
+		},
+		{
+			"name": "keyword.other.source.jai",
+			"match": "---"
 		},
 		{
 			"name": "storage.type.source.jai",
-			"match": "\\b(?:struct|enum|void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\\b"
+			"match": "\\b(?:void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\\b"
 		},
-		{
-			"include": "#comment"
-		}
+		{ "include": "#struct" },
+		{ "include": "#enum" },
+		{ "include": "#new" },
+		{ "include": "#cast" },
+		{ "include": "#comment" }
 	],
 	"repository": {
+		"struct": {
+			"match": "(\\w+)\\s*::\\s*(struct)\\b",
+			"captures": {
+				"1": { "name": "entity.name.type.struct.source.jai" },
+				"2": { "name": "storage.type.struct.source.jai" }
+			}
+		},
+		"enum": {
+			"match": "(\\w+)\\s*::\\s*(enum)\\b",
+			"captures": {
+				"1": { "name": "entity.name.type.enum.source.jai" },
+				"2": { "name": "storage.type.enum.source.jai" }
+			}
+		},
+		"new": {
+			"match": "\\b(new)\\s+(\\w+)",
+			"captures": {
+			    "1": { "name": "keyword.operator.new.source.jai" },
+			    "2": { "name": "storage.type.source.jai" }
+			}
+		},
+		"cast": {
+			"match": "\\b(cast)\\s*\\((.+?)\\)",
+			"captures": {
+			    "1": { "name": "keyword.operator.source.jai" },
+			    "2": { "name": "storage.type.source.jai" }
+			}
+		},
 		"comment": {
 			"patterns": [
 				{ "include": "#line-comment" },
