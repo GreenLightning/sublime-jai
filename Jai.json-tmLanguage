@@ -4,65 +4,102 @@
 	"scopeName": "source.jai",
 	"fileTypes": ["jai"],
 	"patterns": [
-		{
-			"name": "constant.language.true.source.jai",
-			"match": "\\btrue\\b"
-		},
-		{
-			"name": "constant.language.false.source.jai",
-			"match": "\\bfalse\\b"
-		},
-		{
-			"name": "constant.language.null.source.jai",
-			"match": "\\bnull\\b"
-		},
-		{
-			"name": "constant.numeric.hexadecimal.source.jai",
-			"match": "(?<!\\w)0x[[:xdigit:]]+"
-		},
-		{
-			"name": "constant.numeric.decimal.source.jai",
-			"match": "(?<!\\w)\\d+(?:\\.\\d+)?"
-		},
-		{
-			"name": "string.quoted.double.source.jai",
-			"match": "\".*?\""
-		},
-		{
-			"name": "keyword.other.directive.source.jai",
-			"match": "#\\w*"
-		},
-		{
-			"name": "keyword.other.tag.source.jai",
-			"match": "@\\S+"
-		},
-		{
-			"name": "keyword.control.source.jai",
-			"match": "\\b(?:if|then|else|for|while|continue|return)\\b"
-		},
-		{
-			"name": "keyword.operator.source.jai",
-			"match": "\\b(?:delete|xx|size_of)\\b"
-		},
-		{
-			"name": "keyword.other.source.jai",
-			"match": "\\b(?:defer|using|it|SOA|AOS)\\b"
-		},
-		{
-			"name": "keyword.other.source.jai",
-			"match": "---|\\$\\$"
-		},
-		{
-			"name": "storage.type.source.jai",
-			"match": "\\b(?:void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\\b"
-		},
+		{ "include": "#comment" },
+		{ "include": "#constant" },
+		{ "include": "#keyword" },
 		{ "include": "#struct" },
 		{ "include": "#enum" },
 		{ "include": "#new" },
-		{ "include": "#cast" },
-		{ "include": "#comment" }
+		{ "include": "#cast" }
 	],
 	"repository": {
+		"comment": {
+			"patterns": [
+				{ "include": "#line-comment" },
+				{ "include": "#block-comment" }
+			]
+		},
+		"block-comment": {
+			"name": "comment.block.source.jai",
+			"begin": "/\\*",
+			"end": "\\*/",
+			"patterns": [
+				{ "include": "#block-comment" }
+			]
+		},
+		"line-comment": {
+			"name": "comment.line.source.jai",
+			"begin": "//",
+			"end": "$"
+		},
+		"constant": {
+			"patterns": [
+				{
+					"name": "constant.language.true.source.jai",
+					"match": "\\btrue\\b"
+				},
+				{
+					"name": "constant.language.false.source.jai",
+					"match": "\\bfalse\\b"
+				},
+				{
+					"name": "constant.language.null.source.jai",
+					"match": "\\bnull\\b"
+				},
+				{
+					"name": "constant.numeric.hexadecimal.source.jai",
+					"match": "(?<!\\w)0x[[:xdigit:]]+"
+				},
+				{
+					"name": "constant.numeric.decimal.source.jai",
+					"match": "(?<!\\w)\\d+(?:\\.\\d+)?"
+				},
+				{
+					"name": "string.quoted.double.source.jai",
+					"match": "\".*?\""
+				}
+			]
+		},
+		"keyword": {
+			"patterns": [
+				{
+					"name": "keyword.other.directive.source.jai",
+					"match": "#\\w*"
+				},
+				{
+					"name": "keyword.other.tag.source.jai",
+					"match": "@\\S+"
+				},
+				{
+					"name": "keyword.control.source.jai",
+					"match": "\\b(?:if|then|else|for|while|continue|return)\\b"
+				},
+				{
+					"name": "keyword.operator.source.jai",
+					"match": "\\b(?:delete|xx|size_of)\\b"
+				},
+				{
+					"name": "keyword.operator.source.jai",
+					"match": "(?:\\+|-|\\*|/|<|>|!)=?"
+				},
+				{
+					"name": "keyword.operator.source.jai",
+					"match": "==|<<|\\.\\.|&&"
+				},
+				{
+					"name": "keyword.other.source.jai",
+					"match": "\\b(?:defer|using|it|SOA|AOS)\\b"
+				},
+				{
+					"name": "keyword.other.source.jai",
+					"match": "---|\\$\\$"
+				},
+				{
+					"name": "storage.type.source.jai",
+					"match": "\\b(?:void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\\b"
+				}
+			]
+		},
 		"struct": {
 			"match": "(\\w+)\\s*::\\s*(struct)\\b",
 			"captures": {
@@ -90,25 +127,6 @@
 			    "1": { "name": "keyword.operator.source.jai" },
 			    "2": { "name": "storage.type.source.jai" }
 			}
-		},
-		"comment": {
-			"patterns": [
-				{ "include": "#line-comment" },
-				{ "include": "#block-comment" }
-			]
-		},
-		"block-comment": {
-			"name": "comment.block.source.jai",
-			"begin": "/\\*",
-			"end": "\\*/",
-			"patterns": [
-				{ "include": "#block-comment" }
-			]
-		},
-		"line-comment": {
-			"name": "comment.line.source.jai",
-			"begin": "//",
-			"end": "$"
 		}
 	},
 	"uuid": "728cfc9a-25ea-429c-a559-daf7c5d46351"

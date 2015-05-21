@@ -11,82 +11,16 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>match</key>
-			<string>\btrue\b</string>
-			<key>name</key>
-			<string>constant.language.true.source.jai</string>
+			<key>include</key>
+			<string>#comment</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>\bfalse\b</string>
-			<key>name</key>
-			<string>constant.language.false.source.jai</string>
+			<key>include</key>
+			<string>#constant</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>\bnull\b</string>
-			<key>name</key>
-			<string>constant.language.null.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?&lt;!\w)0x[[:xdigit:]]+</string>
-			<key>name</key>
-			<string>constant.numeric.hexadecimal.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?&lt;!\w)\d+(?:\.\d+)?</string>
-			<key>name</key>
-			<string>constant.numeric.decimal.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>".*?"</string>
-			<key>name</key>
-			<string>string.quoted.double.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>#\w*</string>
-			<key>name</key>
-			<string>keyword.other.directive.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>@\S+</string>
-			<key>name</key>
-			<string>keyword.other.tag.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?:if|then|else|for|while|continue|return)\b</string>
-			<key>name</key>
-			<string>keyword.control.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?:delete|xx|size_of)\b</string>
-			<key>name</key>
-			<string>keyword.operator.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?:defer|using|it|SOA|AOS)\b</string>
-			<key>name</key>
-			<string>keyword.other.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>---|\$\$</string>
-			<key>name</key>
-			<string>keyword.other.source.jai</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?:void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\b</string>
-			<key>name</key>
-			<string>storage.type.source.jai</string>
+			<key>include</key>
+			<string>#keyword</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -103,10 +37,6 @@
 		<dict>
 			<key>include</key>
 			<string>#cast</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#comment</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -159,6 +89,48 @@
 				</dict>
 			</array>
 		</dict>
+		<key>constant</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\btrue\b</string>
+					<key>name</key>
+					<string>constant.language.true.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\bfalse\b</string>
+					<key>name</key>
+					<string>constant.language.false.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\bnull\b</string>
+					<key>name</key>
+					<string>constant.language.null.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\w)0x[[:xdigit:]]+</string>
+					<key>name</key>
+					<string>constant.numeric.hexadecimal.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!\w)\d+(?:\.\d+)?</string>
+					<key>name</key>
+					<string>constant.numeric.decimal.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>".*?"</string>
+					<key>name</key>
+					<string>string.quoted.double.source.jai</string>
+				</dict>
+			</array>
+		</dict>
 		<key>enum</key>
 		<dict>
 			<key>captures</key>
@@ -176,6 +148,66 @@
 			</dict>
 			<key>match</key>
 			<string>(\w+)\s*::\s*(enum)\b</string>
+		</dict>
+		<key>keyword</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>#\w*</string>
+					<key>name</key>
+					<string>keyword.other.directive.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>@\S+</string>
+					<key>name</key>
+					<string>keyword.other.tag.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:if|then|else|for|while|continue|return)\b</string>
+					<key>name</key>
+					<string>keyword.control.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:delete|xx|size_of)\b</string>
+					<key>name</key>
+					<string>keyword.operator.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?:\+|-|\*|/|&lt;|&gt;|!)=?</string>
+					<key>name</key>
+					<string>keyword.operator.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>==|&lt;&lt;|\.\.|&amp;&amp;</string>
+					<key>name</key>
+					<string>keyword.operator.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:defer|using|it|SOA|AOS)\b</string>
+					<key>name</key>
+					<string>keyword.other.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>---|\$\$</string>
+					<key>name</key>
+					<string>keyword.other.source.jai</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(?:void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\b</string>
+					<key>name</key>
+					<string>storage.type.source.jai</string>
+				</dict>
+			</array>
 		</dict>
 		<key>line-comment</key>
 		<dict>
