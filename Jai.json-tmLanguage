@@ -13,6 +13,10 @@
 			"match": "\\bfalse\\b"
 		},
 		{
+			"name": "constant.language.null.source.jai",
+			"match": "\\bnull\\b"
+		},
+		{
 			"name": "constant.numeric.hexadecimal.source.jai",
 			"match": "(?<!\\w)0x[[:xdigit:]]+"
 		},

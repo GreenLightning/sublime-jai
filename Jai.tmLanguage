@@ -24,6 +24,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>\bnull\b</string>
+			<key>name</key>
+			<string>constant.language.null.source.jai</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(?&lt;!\w)0x[[:xdigit:]]+</string>
 			<key>name</key>
 			<string>constant.numeric.hexadecimal.source.jai</string>
