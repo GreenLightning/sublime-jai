@@ -46,7 +46,7 @@
 		},
 		{
 			"name": "keyword.other.source.jai",
-			"match": "---"
+			"match": "---|\\$\\$"
 		},
 		{
 			"name": "storage.type.source.jai",
