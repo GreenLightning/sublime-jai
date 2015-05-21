@@ -203,7 +203,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(?:void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\b</string>
+					<string>\b(?:Any|void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\b</string>
 					<key>name</key>
 					<string>storage.type.source.jai</string>
 				</dict>
