@@ -57,6 +57,18 @@
 				{
 					"name": "string.quoted.double.source.jai",
 					"match": "\".*?\""
+				},
+				{
+					"name": "string.unquoted.source.jai",
+					"begin": "(#string) (.*)$",
+					"beginCaptures": {
+						"1": { "name": "keyword.other.directive.source.jai" },
+						"2": { "name": "constant.other.stringdelimiter.source.jai" }
+					},
+					"end": "^(\\2)$",
+					"endCaptures": {
+						"1": { "name": "constant.other.stringdelimiter.source.jai" }
+					}
 				}
 			]
 		},

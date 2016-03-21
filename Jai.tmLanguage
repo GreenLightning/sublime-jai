@@ -129,6 +129,35 @@
 					<key>name</key>
 					<string>string.quoted.double.source.jai</string>
 				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(#string) (.*)$</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.directive.source.jai</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>constant.other.stringdelimiter.source.jai</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>^(\2)$</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>constant.other.stringdelimiter.source.jai</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.unquoted.source.jai</string>
+				</dict>
 			</array>
 		</dict>
 		<key>enum</key>
