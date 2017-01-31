@@ -48,11 +48,11 @@
 				},
 				{
 					"name": "constant.numeric.hexadecimal.source.jai",
-					"match": "(?<!\\w)0x[[:xdigit:]]+"
+					"match": "(?<!\\w)(0(?:x|h))(?:[[:xdigit:]]|_)+"
 				},
 				{
 					"name": "constant.numeric.decimal.source.jai",
-					"match": "(?<!\\w)\\d+(?:\\.\\d+)?"
+					"match": "(?<!\\w)(?:\\d|_)+(?:\\.(?:\\d|_)+)?"
 				},
 				{
 					"name": "string.quoted.double.source.jai",

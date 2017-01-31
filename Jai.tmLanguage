@@ -113,13 +113,13 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\w)0x[[:xdigit:]]+</string>
+					<string>(?&lt;!\w)(0(?:x|h))(?:[[:xdigit:]]|_)+</string>
 					<key>name</key>
 					<string>constant.numeric.hexadecimal.source.jai</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\w)\d+(?:\.\d+)?</string>
+					<string>(?&lt;!\w)(?:\d|_)+(?:\.(?:\d|_)+)?</string>
 					<key>name</key>
 					<string>constant.numeric.decimal.source.jai</string>
 				</dict>
