@@ -15,7 +15,6 @@ contexts:
     - include: keyword
     - include: struct
     - include: enum
-    - include: new
     - include: cast
 
   comment:
@@ -71,7 +70,7 @@ contexts:
       scope: keyword.other.tag.source.jai
     - match: '\b(?:if|then|else|for|while|continue|return)\b'
       scope: keyword.control.source.jai
-    - match: '\b(?:delete|xx|size_of)\b'
+    - match: '\b(?:xx|size_of)\b'
       scope: keyword.operator.source.jai
     - match: '(?:\+|-|\*|/|<|>|!)=?'
       scope: keyword.operator.source.jai
@@ -95,12 +94,6 @@ contexts:
       captures:
         1: entity.name.type.enum.source.jai
         2: storage.type.enum.source.jai
-
-  new:
-    - match: \b(new)\s+(\w+)
-      captures:
-        1: keyword.operator.new.source.jai
-        2: storage.type.source.jai
 
   cast:
     - match: \b(cast)\s*\((.+?)\)
