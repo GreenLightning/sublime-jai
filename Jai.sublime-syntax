@@ -71,7 +71,7 @@ contexts:
     - match: '\b(?:if|then|else|for|while|continue|return)\b'
       scope: keyword.control.jai
     - match: '\b(?:xx|size_of)\b'
-      scope: keyword.operator.jai
+      scope: keyword.operator.word.jai
     - match: '(?:\+|-|\*|/|<|>|!)=?'
       scope: keyword.operator.jai
     - match: ==|<<|\.\.|&&
@@ -98,5 +98,5 @@ contexts:
   cast:
     - match: \b(cast)\s*\((.+?)\)
       captures:
-        1: keyword.operator.jai
+        1: keyword.operator.word.cast.jai
         2: storage.type.jai
