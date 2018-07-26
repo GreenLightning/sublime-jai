@@ -1,0 +1,109 @@
+%YAML 1.2
+---
+
+# http://www.sublimetext.com/docs/3/syntax.html
+
+name: Jai
+file_extensions:
+  - jai
+scope: source.jai
+
+contexts:
+  main:
+    - include: comment
+    - include: constant
+    - include: keyword
+    - include: struct
+    - include: enum
+    - include: new
+    - include: cast
+
+  comment:
+    - include: line-comment
+    - include: block-comment
+
+  line-comment:
+    - match: //
+      push:
+        - meta_scope: comment.line.source.jai
+        - match: $
+          pop: true
+
+  block-comment:
+    - match: /\*
+      push:
+        # Allow nested comments.
+        - include: block-comment
+        - meta_scope: comment.block.source.jai
+        - match: \*/
+          pop: true
+
+  constant:
+    - match: \btrue\b
+      scope: constant.language.true.source.jai
+    - match: \bfalse\b
+      scope: constant.language.false.source.jai
+    - match: \bnull\b
+      scope: constant.language.null.source.jai
+    - match: '(?<!\w)(0(?:x|h))(?:[[:xdigit:]]|_)+'
+      scope: constant.numeric.hexadecimal.source.jai
+    - match: '(?<!\w)(?:\d|_)+(?:\.(?:\d|_)+)?'
+      scope: constant.numeric.decimal.source.jai
+    - match: '".*?"'
+      scope: string.quoted.double.source.jai
+    - match: (#string) (.*)$
+      captures:
+        1: keyword.other.directive.source.jai
+        2: constant.other.stringdelimiter.source.jai
+      scope:
+      embed: herestring
+      escape: ^(\2)$
+      escape_captures:
+        1: constant.other.stringdelimiter.source.jai
+
+  herestring:
+    - meta_scope: string.unquoted.source.jai
+
+  keyword:
+    - match: '#\w*'
+      scope: keyword.other.directive.source.jai
+    - match: '@\S+'
+      scope: keyword.other.tag.source.jai
+    - match: '\b(?:if|then|else|for|while|continue|return)\b'
+      scope: keyword.control.source.jai
+    - match: '\b(?:delete|xx|size_of)\b'
+      scope: keyword.operator.source.jai
+    - match: '(?:\+|-|\*|/|<|>|!)=?'
+      scope: keyword.operator.source.jai
+    - match: ==|<<|\.\.|&&
+      scope: keyword.operator.source.jai
+    - match: '\b(?:defer|using|it|SOA|AOS)\b'
+      scope: keyword.other.source.jai
+    - match: '---|\$\$'
+      scope: keyword.other.source.jai
+    - match: '\b(?:Any|void|string|bool|float|float32|float64|int|u8|u16|u32|u64|s8|s16|s32|s64)\b'
+      scope: storage.type.source.jai
+
+  struct:
+    - match: (\w+)\s*::\s*(struct)\b
+      captures:
+        1: entity.name.type.struct.source.jai
+        2: storage.type.struct.source.jai
+
+  enum:
+    - match: (\w+)\s*::\s*(enum)\b
+      captures:
+        1: entity.name.type.enum.source.jai
+        2: storage.type.enum.source.jai
+
+  new:
+    - match: \b(new)\s+(\w+)
+      captures:
+        1: keyword.operator.new.source.jai
+        2: storage.type.source.jai
+
+  cast:
+    - match: \b(cast)\s*\((.+?)\)
+      captures:
+        1: keyword.operator.source.jai
+        2: storage.type.source.jai
