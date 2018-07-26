@@ -68,7 +68,7 @@ contexts:
       scope: keyword.other.directive.jai
     - match: '@\S+'
       scope: keyword.other.tag.jai
-    - match: '\b(?:if|then|else|for|while|continue|return)\b'
+    - match: '\b(?:if|then|else|case|for|while|break|continue|defer|return)\b'
       scope: keyword.control.jai
     - match: '\b(?:xx|size_of)\b'
       scope: keyword.operator.word.jai
@@ -76,7 +76,7 @@ contexts:
       scope: keyword.operator.jai
     - match: ==|<<|\.\.|&&
       scope: keyword.operator.jai
-    - match: '\b(?:defer|using|it|SOA|AOS)\b'
+    - match: '\b(?:using|it|it_index|push_context|inline|no_inline)\b'
       scope: keyword.other.jai
     - match: '---|\$\$'
       scope: keyword.other.jai
