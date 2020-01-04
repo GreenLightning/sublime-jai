@@ -2,7 +2,7 @@
 
 Adds support for [Jonathan Blow](https://twitter.com/Jonathan_Blow)'s programming language **Jai** to Sublime Text 3.
 
-## Featuers
+## Features
 
 - Syntax highlighting
 - Comment definitions
